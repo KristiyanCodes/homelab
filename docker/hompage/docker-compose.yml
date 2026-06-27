@@ -1,0 +1,12 @@
+ervices:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    restart: unless-stopped
+    ports:
+      - 3002:3000
+    volumes:
+      - /home/kristiyan/docker/homepage/config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - HOMEPAGE_ALLOWED_HOSTS=gentoorpi:3002,100.108.153.61:3002,192.168.10.212:3002
